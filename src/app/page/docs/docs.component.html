@@ -1,0 +1,114 @@
+<div class="page-content">
+  <div class="wrapper">
+    <div class="nav-column">
+      <a class="nav-item easing" (click)="this.page = 0" [class.active]="this.page == 0">
+        Initial Setup
+      </a>
+
+      <a class="nav-item easing" (click)="this.page = 1" [class.active]="this.page == 1">
+        Configuring
+      </a>
+
+      <a class="nav-item easing" (click)="this.page = 2" [class.active]="this.page == 2">
+        API Reference
+      </a>
+    </div>
+
+    <div class="content-column">
+      <div class="content-item" [class.active]="this.page == 0">
+        <p>Setting up your project to work with hiredisx requires CMake, Make and Hiredis.</p>
+
+        <p>
+          Assuming that you have CMake and Make installed you can run the following script to
+          install both hiredis and hiredisx all in one go:
+        </p>
+
+        <ngx-gist [gistId]="'ChrisCates/32e04e3d89cb044efb7de8f5dc255c2f'" class="gist-p1-1"></ngx-gist>
+
+        <p>
+          Once hiredis and hiredisx are installed, you need to configure your CMakeLists.txt file to support
+          both libraries. The following configuration for CMake will work for most unix platforms:
+        </p>
+
+        <ngx-gist [gistId]="'ChrisCates/7d6afc1278b5b20671177f43da9059af'" class="gist-p1-2"></ngx-gist>
+
+        <p>
+          You should now be able to include the hiredisx.hpp header file into your project.
+        </p>
+
+      </div>
+      <!-- page 1 -->
+
+      <div class="content-item" [class.active]="this.page == 1">
+        <p>Before you can use hiredisx. You will need to include the header file and configure your options if needed:</p>
+
+        <ngx-gist [gistId]="'ChrisCates/1cfb9bbf9a7b6bd4607408406e7cedce'" class="gist-p2-1"></ngx-gist>
+
+        <p>You will also then need to validate and confirm that you can connect to your redis instance:</p>
+
+        <ngx-gist [gistId]="'ChrisCates/59f7f2407ecfaae9e2828ce8fddaf088'" class="gist-p2-2"></ngx-gist>
+
+      </div>
+      <!-- page 2 -->
+
+      <div class="content-item" [class.active]="this.page == 2">
+
+        <p class="command-title">hiredisx::set</p>
+        <p class="command">bool hiredisx::set(std::string key, std::string value)</p>
+        <p>
+          hiredisx::set returns a boolean after setting a key. If true, this means that
+          the key was successfully set. If false, this means the key was not set. The key
+          that was set is now retrievable via the key string specified.
+        </p>
+        <p class="command-title">Example</p>
+        <ngx-gist [gistId]="'ChrisCates/834f7866f173b738c470484715b825d7'" class="gist-p3-1"></ngx-gist>
+
+        <p class="command-title">hiredisx::get</p>
+        <p class="command">std::string hiredisx::get(std::string key)</p>
+        <p>
+          hiredisx::get returns the string value of a specified key. If the key has not been set
+          it will simply just return an empty string. If there is an error connecting with the database.
+          The string value will contain details of why it failed.
+        </p>
+        <p class="command-title">Example</p>
+        <ngx-gist [gistId]="'ChrisCates/664d75d7c2d6315ad7ed1d3f9356d473'" class="gist-p3-1"></ngx-gist>
+
+        <p class="command-title">hiredisx::del</p>
+        <p class="command">bool hiredisx::del(std::string key)</p>
+        <p>
+          hiredisx::del deletes a specified key. It will return true if the key has been successfully
+          deleted. It will return false if there was an error connecting with the database.
+        </p>
+        <p class="command-title">Example</p>
+        <ngx-gist [gistId]="'ChrisCates/23ca5dc8589008dc2984ca7f37980538'" class="gist-p3-1"></ngx-gist>
+
+        <p class="command-title">hiredisx::push</p>
+        <p class="command">bool hiredisx::push(std::string key, std::string value, std::string prefix = "L")</p>
+        <p>
+          hiredisx::push appends a value to a list. If the list does not exist, it will create a new one.
+          Note that it works similar to the set command, however, it includes a prefix that is default to "L".
+          The prefix can be either "L" or "R". If left, it will prepend to the beginning of the list. If "R"
+          it will append it to the end of the list.
+        </p>
+        <p class="command-title">Example</p>
+        <ngx-gist [gistId]="'ChrisCates/70139f96ecd11b4e3fca5e703acb22a3'" class="gist-p3-1"></ngx-gist>
+
+        <p class="command-title">hiredisx::list</p>
+        <p class="command">std::vector&#60;std::string&#62; <br/><br/> list(std::string key, int start = 0, int end = -1, std::string prefix = "L")</p>
+        <p>
+          hiredisx::list retrieves a vector of the list. The start integer specifies where to start in the list.
+          The end integer specifies where to stop. If the end integer is set to -1. It will retrieve til the end of
+          the list. Similar to the push command. The prefix "L" means to iterate forward from start to finish.
+          While "R" means to iterate backwards from finish to the starting point.
+        </p>
+        <p class="command-title">Example</p>
+        <ngx-gist [gistId]="'ChrisCates/e2606d89a57adccd294d1957d8ef3a80'" class="gist-p3-1"></ngx-gist>
+
+
+      </div>
+      <!-- page 3 -->
+
+    </div>
+
+  </div>
+</div>

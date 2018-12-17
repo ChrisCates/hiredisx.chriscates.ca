@@ -1,0 +1,107 @@
+@import "../../styles.scss";
+
+div.banner {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 90px 15px;
+    display: flex;
+    flex-direction: row;
+    div.banner-image {
+        width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @keyframes anim {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-25px); }
+            100% { transform: translateY(0px); }
+        }
+        img {
+            transform: translateY(0px);
+            width: 150px;
+            animation: anim;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+    }
+    div.banner-text {
+        width: calc(100% - 300px);
+        h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        div.badge-roll {
+            width: 100%;
+            padding: 15px 0;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -7.5px;
+            img {
+                margin: 0 7.5px;
+            }
+        }
+
+        div.link-roll {
+            width: 100%;
+            padding: 45px 0;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -7.5px;
+            a.option {
+                width: 200px;
+                height: 50px;
+                border-radius: 25px;
+                background: $g4;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                margin: 0 15px;
+                i {
+                    margin-top: 2.5px;
+                    margin-right: 5px;
+                }
+                &:hover {
+                    transform: scale(1.1);
+                    background: $b1;
+                }
+            }
+        }
+    }
+}
+
+div.example-usage {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+
+    h3 {
+        font-size: 32px;
+        font-weight: 300;
+        margin-bottom: 30px;
+    }
+
+    .gist1 {
+        height: 460px;
+        margin-bottom: 30px;
+    }
+
+    .gist2 {
+        height: 460px;
+        margin-bottom: 30px;
+    }
+}

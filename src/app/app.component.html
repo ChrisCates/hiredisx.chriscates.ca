@@ -1,0 +1,99 @@
+<header>
+  <div class="header-wrap">
+    <div class="brand" routerLink="/">
+      <img src="/assets/img/redis.png" />
+      <h1>
+        hiredisx
+      </h1>
+    </div>
+    <a class="menu-option easing" (click)="this.menuOption = !this.menuOption;">
+      <i class="fas fa-ellipsis-h"></i>
+    </a>
+  </div>
+</header>
+  
+<div class="menu-rollover-wrap">
+  <div class="menu-rollover easing" [ngClass]="{'active': this.menuOption}">
+    <a class="option easing" routerLink="/" (click)="this.menuOption = false;">
+      <i class="fas fa-home"></i>
+      Homepage
+    </a>
+    <a class="option easing" href="https://github.com/ChrisCates/hiredisx" target="_blank">
+        <i class="fab fa-github"></i>
+        Source Code
+    </a>
+    <a class="option easing" routerLink="/docs" (click)="this.menuOption = false;">
+        <i class="fas fa-scroll"></i>
+        Documentation
+    </a>
+  </div>
+</div>
+
+<div id="loading-screen" [ngClass]="{'done': !this.loading}">
+  <img src="/assets/img/redis.png" />
+</div>
+
+<router-outlet></router-outlet>
+
+<footer>
+    <div class="footer-wrap">
+      <div class="brand">
+        <div class="brand-text">
+          <div class="brand-text-title">
+            <h1>
+              <img src="/assets/img/logo.png" alt="Logo" />
+              <img src="/assets/img/lambda.png" alt="Lambda" />
+              By Chris Cates
+  
+            </h1>
+            <h2>Software and Robotics Developer</h2>
+          </div>
+        </div>
+      </div>
+      <div class="footer-columns">
+  
+        <div class="footer-column">
+          <div class="social-roll">
+            <a class="social-link easing" href="https://chriscates.ca" target="_blank">
+              <i class="fas fa-globe-americas"></i>
+              <span class="rollover easing">chriscates.ca</span>
+            </a>
+            <a class="social-link easing" href="https://github.com/ChrisCates" target="_blank">
+              <i class="fab fa-github-square"></i>
+              <span class="rollover easing">@ChrisCates</span>
+            </a>
+            <a class="social-link easing" href="https://linkedin.com/in/itsChrisCates" target="_blank">
+              <i class="fab fa-linkedin"></i>
+              <span class="rollover easing">@itsChrisCates</span>
+            </a>
+            <a class="social-link easing" href="https://www.youtube.com/channel/UCmNMVl5gicZyxTjTNLBqjgw" target="_blank">
+              <i class="fab fa-youtube"></i>
+              <span class="rollover easing">@ChrisCates</span>
+            </a>
+            <a class="social-link easing">
+              <i class="fas fa-mail-bulk"></i>
+              <span class="rollover easing">hello@chriscates.ca</span>
+            </a>
+          </div>
+        </div>
+  
+        <div class="footer-column algo">
+          <h3>Donate and Support this project</h3>
+          <div class="donation">
+            <p>
+              BTC <i class="fab fa-bitcoin"></i>
+              3JYW6jNYDDmPV96SFwt5BaaZp5EKqQqg2q
+            </p>
+            <p>
+              ETH <i class="fab fa-ethereum"></i>
+              0xEa164375af199f85FAc440878Dd564CC4748cD94
+            </p>
+            <p>
+  
+            </p>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </footer>  

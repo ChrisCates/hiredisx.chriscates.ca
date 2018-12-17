@@ -1,0 +1,43 @@
+<div class="page-content">
+  <div class="banner">
+    <div class="banner-image">
+      <img src="/assets/img/redis.png"/>
+    </div>
+    <div class="banner-text">
+        <h1>hiredisx</h1>
+        <h2>The threadsafe version of hiredis in C++</h2>
+        <div class="badge-roll">
+          <img src="https://img.shields.io/badge/license-MIT-blue.svg"/>
+          <img src="https://travis-ci.org/ChrisCates/hiredisx.svg?branch=master"/>
+          <img src="https://codecov.io/gh/ChrisCates/hiredisx/branch/master/graph/badge.svg"/>
+          <img src="https://img.shields.io/badge/cmake%20standard-C++%2011-blue.svg"/>
+          <img src="https://img.shields.io/badge/cmake%20version-3.7-blue.svg"/>
+        </div>
+        <p>
+          The core intention of the hiredisx library is to create an easier to use threadsafe version of hiredis.
+          Hiredis is very non-prescriptive, making almost no assumptions of your environment. 
+          On the otherhand, hiredisx provides some nice easy to use functions for interacting with hiredis that are completely threadsafe and allow for parallel computing.
+          hiredisx is always open to PRs and contributions.
+        </p>
+        <div class="link-roll">
+            <a class="option easing" href="https://github.com/ChrisCates/hiredisx" target="_blank">
+              <i class="fab fa-github"></i>
+              Source Code
+          </a>
+          <a class="option easing" routerLink="/docs">
+              <i class="fas fa-scroll"></i>
+              Documentation
+          </a>
+        </div>
+    </div>
+  </div>
+  <div class="example-usage">
+    <h3>Using hiredisx is easy!</h3>
+
+    <ngx-gist [gistId]="'ChrisCates/1b1ab68cdb16d4406d77226a7917d474'" class="gist1"></ngx-gist>
+
+    <h3>Want to do custom operations? No problem!</h3>
+
+    <ngx-gist [gistId]="'ChrisCates/34143ec6a8ce5bf3df1577f09cfc71e8'" class="gist2"></ngx-gist>
+  </div>
+</div>
